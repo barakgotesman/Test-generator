@@ -1,4 +1,5 @@
 import data as DataFile
+import random
 
 def getFile(fileName):
     file = open(fileName, "r")
@@ -15,8 +16,6 @@ def createDataTest(source):
 
     for index, line in enumerate(dataFile):
 
-        print(line, end="")
-
         # find questions
         # string that ends with question mark.
         # ANSWER MUST BE THE FIRST OPTION
@@ -26,7 +25,6 @@ def createDataTest(source):
             DataFile.questionsAndAnswers.append(questionAndCurrectAnswer)
 
             options = []  # list of options for the question
-            option = True
             nextIndex = index+1
             # protect (out of range)
             while nextIndex < len(dataFile):
@@ -41,3 +39,15 @@ def createDataTest(source):
             
             # end scanning options of question that found
             DataFile.questionsAndOptions.append((getString(line), options))
+
+# this function generate suffule questions and options (new test)
+def shuffleTest(questions):
+    # suffule questions
+    random.shuffle(questions)
+    
+    # suffule all options each question
+    for question in questions:
+        random.shuffle(question[1])
+
+    return questions
+    
