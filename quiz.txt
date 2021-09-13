@@ -1,0 +1,14 @@
+what is my name?
+barak
+david
+tester
+
+what is my fav color?
+yellow
+green
+
+what is my age?
+25
+10
+23
+16
